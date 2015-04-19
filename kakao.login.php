@@ -21,4 +21,8 @@
 	$token = curl_exec($curl);
 	curl_close($curl);
 
+	session_start();	
+	$_SESSION["token"] = $token;
+	header('Location: kakao.posting.php');
+
 ?>
