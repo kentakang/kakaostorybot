@@ -195,5 +195,6 @@
 				curl_close($curl);
 				break;
 		}
+		sleep(600);
 	}
 ?>
