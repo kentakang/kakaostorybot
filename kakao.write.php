@@ -8,7 +8,28 @@
 
 	ini_set('max_execution_time', 0);
 
-	while ($i < 2) {
+	function kakao_posting($content, $permission, $enable_share) {
+		$params = sprintf('content='.$content.'&permission='.$permission.'&enable_share='.$enable_share);
+		$opts = array( 
+			CURLOPT_HTTPHEADER => array(
+				"Authorization: Bearer {$token}"
+			),
+			CURLOPT_URL => "https://kapi.kakao.com/v1/api/story/post/note", 
+			CURLOPT_SSL_VERIFYPEER => false, 
+				CURLOPT_SSLVERSION => 1,
+			CURLOPT_POST => true, 
+			CURLOPT_POSTFIELDS => $params, 
+			CURLOPT_RETURNTRANSFER => true, 
+		);
+		$curl = curl_init();
+		curl_setopt_array($curl, $opts);
+		$result = curl_exec($curl);
+		curl_close($curl);
+	}
+
+	kakao_posting(test, f, true);
+
+	/* while ($i < 2) {
 		$rand_num = rand(1,10); // 1부터 10중 랜덤으로 생성
 		switch($rand_num) {
 			case "1" :
@@ -193,5 +214,5 @@
 				break;
 		}
 		sleep(600);
-	}
+	} */
 ?>
