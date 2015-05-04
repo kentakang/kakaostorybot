@@ -1,2 +1,2 @@
 # kakaostorybot
-설명 없음
+GPL 2.0
