@@ -1,5 +1,5 @@
 <?php
-	require_once ("kakao.config.php");
+	require_once ("story.config.php");
 
 	$code   = $_GET["code"]; 
 	$params = sprintf( 'grant_type=authorization_code&client_id=%s&redirect_uri=%s&code=%s', $kakao_app_id, $kakao_redirect, $code); 
@@ -44,7 +44,7 @@
 				$_SESSION['token']=$token;
 				$_SESSION['refresh_token']=$refresh_token;
 
-				header('Location:./kakao.write.php');
+				header('Location:./story.api.php');
 			}
 	 }
 
