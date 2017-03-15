@@ -1,1 +1,1 @@
-# kakaostorybot
+# storyapi
